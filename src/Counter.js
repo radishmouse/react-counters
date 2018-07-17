@@ -1,10 +1,14 @@
 import React from 'react';
 
 // Counter is a React Component
-const Counter = () => {
+const Counter = ({
+  finalValue,
+  initialValue
+}) => {
+  // console.log(props);
   return (
     <div className='counter'>
-      3
+      {initialValue}
     </div>
   );
 };

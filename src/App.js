@@ -1,5 +1,5 @@
 import React from 'react';
-import Jeff from './Counter';
+import Counter from './Counter';
 
 // App is a React Component
 const App = () => {
@@ -10,12 +10,26 @@ const App = () => {
     <div className='container'>
       <button>+</button>
       <div className='counter-box'>
-
-        <Jeff />
-        <Jeff />
-        <Jeff />
-        <Jeff />
-        <Jeff />
+        <Counter
+          finalValue="100"
+          initialValue="42"
+        />
+        <Counter
+          finalValue="100"
+          initialValue="3"
+        />
+        <Counter
+          finalValue="100"
+          initialValue="18"
+        />
+        <Counter
+          finalValue="100"
+          initialValue="56"
+        />
+        <Counter
+          finalValue="100"
+          initialValue="29"
+        />
 
       </div>
     </div>
