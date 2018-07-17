@@ -1,16 +1,22 @@
 import React from 'react';
+import Jeff from './Counter';
 
+// App is a React Component
 const App = () => {
   /*
   React.createElement('h1', null, 'Hello');
   */
   return (
-    <div className="container">
+    <div className='container'>
       <button>+</button>
-      <div className="counter-box">
-        <div className="counter">3</div>
-        <div className="counter">1</div>
-        <div className="counter">1</div>
+      <div className='counter-box'>
+
+        <Jeff />
+        <Jeff />
+        <Jeff />
+        <Jeff />
+        <Jeff />
+
       </div>
     </div>
   );
