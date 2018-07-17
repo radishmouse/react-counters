@@ -5,36 +5,27 @@ const handleClick = () => {
   console.log('haaaaay');
 };
 
+function convertNumToCounter(value) {
+  return (
+    <Counter initialValue={value} />
+  );
+}
+
+// This is not *quite* the React way.
+let counterValues = [42, 3, 18, 29, 56, 11];
+let counterElements = counterValues.map(convertNumToCounter);
+
+/*
+let counterElements = counterValues.map(value => <Counter initialValue={value} />);
+*/
+
 // App is a React Component
 const App = () => {
-  /*
-  React.createElement('h1', null, 'Hello');
-  */
   return (
     <div className='container'>
       <button onClick={handleClick}>+</button>
       <div className='counter-box'>
-        <Counter
-          finalValue="100"
-          initialValue="42"
-        />
-        <Counter
-          finalValue="100"
-          initialValue="3"
-        />
-        <Counter
-          finalValue="100"
-          initialValue="18"
-        />
-        <Counter
-          finalValue="100"
-          initialValue="56"
-        />
-        <Counter
-          finalValue="100"
-          initialValue="29"
-        />
-
+        {counterElements}
       </div>
     </div>
   );
