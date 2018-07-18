@@ -2,13 +2,26 @@ import React from 'react';
 
 // Rule #1: extend React.Component
 class Counter extends React.Component {
+  // Rule #4: accept props in the
+  // constructor method
+  // In Python, this is __init__
+  constructor(props){
+    super(props);
+
+    // State is *my* stuff.
+    // It is always an object.
+    this.state = {
+      currentValue: props.initialValue
+    };
+  }
+
   // Rule #2: must have render method
   render() {
     // Rule #3: must return some JSX
     // or a call to React.createElement
     return (
       <div className='counter'>
-        3
+        {this.state.currentValue}
       </div>
     );
   }
