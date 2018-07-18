@@ -32,11 +32,11 @@ class Counter extends React.Component {
     });
   }
 
-  _reportMyId = (event) => {
-    // "event" is a "Synthetic Event"
-    console.log(event);
-    this.props.doClick(this.props.id);
-  }
+  // _reportMyId = (event) => {
+  //   // "event" is a "Synthetic Event"
+  //   console.log(event);
+  //   this.props.doClick(this.props.id);
+  // }
 /*
   btn.addEventListener('click', (event) => {
     this.props.doClick(this.props.id)
