@@ -1,10 +1,18 @@
 import React from 'react';
 import Counter from './Counter';
 
+function deleteCounterById(theID) {
+  console.log(theID);
+}
 
 function convertNumToCounter(obj) {
   return (
-    <Counter key={obj.id} initialValue={obj.value} />
+    <Counter
+      key={obj.id}
+      id={obj.id}
+      initialValue={obj.value}
+      doClick={deleteCounterById}
+    />
   );
 }
 
@@ -13,7 +21,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       // counterValues: [33, 11, 2]
-      counterValues: [{id: 54321, value: 33}]
+      counterValues: []
     };
   }
 
