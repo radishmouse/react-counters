@@ -2,32 +2,28 @@ import React from 'react';
 import Counter from './Counter';
 
 
-function convertNumToCounter(value) {
+function convertNumToCounter(obj) {
   return (
-    <Counter initialValue={value} />
+    <Counter key={obj.id} initialValue={obj.value} />
   );
 }
-
-// This is not *quite* the React way.
-// let counterValues = [42, 3, 18, 29, 56, 11];
-// let counterElements = counterValues.map(convertNumToCounter);
-
-/*
-let counterElements = counterValues.map(value => <Counter initialValue={value} />);
-*/
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      counterValues: [33, 11, 2]
+      // counterValues: [33, 11, 2]
+      counterValues: [{id: 54321, value: 33}]
     };
   }
 
   _handleClick = () => {
-    console.log('haaaaay lalalalalalalalalallalalalalalala');
+    let newObj = {
+      id: (new Date()).getTime(),
+      value: 0
+    };
     this.setState({
-      counterValues: this.state.counterValues.concat(0)
+      counterValues: this.state.counterValues.concat(newObj)
     });
   }
 
