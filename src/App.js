@@ -1,5 +1,6 @@
 import React from 'react';
 import Counter from './Counter';
+import Countdown from './Countdown';
 
 function deleteCounterById(theID) {
   console.log(theID);
@@ -7,7 +8,7 @@ function deleteCounterById(theID) {
 
 function convertNumToCounter(obj) {
   return (
-    <Counter
+    <Countdown
       key={obj.id}
       id={obj.id}
       initialValue={obj.value}
