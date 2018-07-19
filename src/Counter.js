@@ -14,7 +14,7 @@ class Counter extends React.Component {
       currentValue: props.initialValue
     };
 
-    setInterval(this._increaseValue, 1000);
+    setInterval(this._increaseValue, 10);
   }
 
   // Always write helper functions
@@ -24,12 +24,15 @@ class Counter extends React.Component {
     // calculate the new currentValue
     let newCurrentValue = this.state.currentValue + 1;
 
-    // then, set the new currentValue in state
-    // but, I must call this.setState
-    // I cannot alter this.state directly
-    this.setState({
-      currentValue: newCurrentValue
-    });
+    if (newCurrentValue <= this.props.finalValue) {
+      // then, set the new currentValue in state
+      // but, I must call this.setState
+      // I cannot alter this.state directly
+      this.setState({
+        currentValue: newCurrentValue
+      });
+    }
+
   }
 
   // _reportMyId = (event) => {
@@ -56,7 +59,7 @@ class Counter extends React.Component {
         }}
       >
         {this.state.currentValue}
-        {this.props.id}
+        {/* {this.props.id} */}
       </div>
     );
   }

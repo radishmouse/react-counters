@@ -17,6 +17,7 @@ function convertNumToCounter(obj) {
         key={obj.id}
         id={obj.id}
         initialValue={obj.value}
+        finalValue={obj.value * 10}
         doClick={deleteCounterById}
       />
     );
@@ -26,6 +27,7 @@ function convertNumToCounter(obj) {
         key={obj.id}
         id={obj.id}
         initialValue={obj.value}
+        finalValue={obj.value * -10}
         doClick={deleteCounterById}
       />
     );
