@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Rule #1: extend React.Component
-class Counter extends React.Component {
+class Countdown extends React.Component {
   // Rule #4: accept props in the
   // constructor method
   // In Python, this is __init__
@@ -14,17 +14,17 @@ class Counter extends React.Component {
       currentValue: props.initialValue
     };
 
-    setInterval(this._increaseValue, 10);
+    setInterval(this._decreaseValue, 10);
   }
 
   // Always write helper functions
   // as arrow functions.
   // Helps keep the bugs away :)
-  _increaseValue = () => {
+  _decreaseValue = () => {
     // calculate the new currentValue
-    let newCurrentValue = this.state.currentValue + 1;
+    let newCurrentValue = this.state.currentValue - 1;
 
-    if (newCurrentValue <= this.props.finalValue) {
+    if (newCurrentValue >= this.props.finalValue) {
       // then, set the new currentValue in state
       // but, I must call this.setState
       // I cannot alter this.state directly
@@ -58,41 +58,12 @@ class Counter extends React.Component {
         }}
       >
         {this.state.currentValue}
+        {/* this is a comment */}
       </div>
     );
   }
 }
 
+// lalala
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Counter is a React Component
-// const Counter = ({
-//   finalValue,
-//   initialValue
-// }) => {
-//   // console.log(props);
-//   return (
-//     <div className='counter'>
-//       {initialValue}
-//     </div>
-//   );
-// };
-
-export default Counter;
+export default Countdown;

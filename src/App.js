@@ -1,19 +1,43 @@
 import React from 'react';
 import Counter from './Counter';
+import Countdown from './Countdown';
+
+function getRandomInt(max=1000) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
 
 function deleteCounterById(theID) {
   console.log(theID);
 }
 
 function convertNumToCounter(obj) {
-  return (
-    <Counter
-      key={obj.id}
-      id={obj.id}
-      initialValue={obj.value}
-      doClick={deleteCounterById}
-    />
-  );
+  // console.log(obj);
+
+  // if the value is even
+  if (obj.value % 2 === 0) {
+    return (
+      <Counter
+        key={obj.id}
+        id={obj.id}
+        initialValue={obj.value}
+        finalValue={obj.value * 10}
+        doClick={deleteCounterById}
+      />
+    );
+  } else {
+    return (
+      <Countdown
+        key={obj.id}
+        id={obj.id}
+        initialValue={obj.value}
+        finalValue={obj.value * -10}
+        doClick={deleteCounterById}
+      />
+    );
+
+  }
+
+  // React.createElement(Countdown, { ... })
 }
 
 class App extends React.Component {
@@ -28,7 +52,7 @@ class App extends React.Component {
   _handleClick = () => {
     let newObj = {
       id: (new Date()).getTime(),
-      value: 0
+      value: getRandomInt()
     };
     this.setState({
       counterValues: this.state.counterValues.concat(newObj)
