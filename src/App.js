@@ -10,35 +10,7 @@ function deleteCounterById(theID) {
   console.log(theID);
 }
 
-function convertNumToCounter(obj) {
-  // console.log(obj);
 
-  // if the value is even
-  if (obj.value % 2 === 0) {
-    return (
-      <Counter
-        key={obj.id}
-        id={obj.id}
-        initialValue={obj.value}
-        finalValue={obj.value * 10}
-        doClick={deleteCounterById}
-      />
-    );
-  } else {
-    return (
-      <Countdown
-        key={obj.id}
-        id={obj.id}
-        initialValue={obj.value}
-        finalValue={obj.value * -10}
-        doClick={deleteCounterById}
-      />
-    );
-
-  }
-
-  // React.createElement(Countdown, { ... })
-}
 
 class App extends React.Component {
   constructor(props) {
@@ -59,12 +31,53 @@ class App extends React.Component {
     });
   }
 
+  _deleteCounterById = (theBadGuysId) => {
+    console.log(theBadGuysId);
+    // Now I can delete!
+    console.log(this.state.counterValues);
+    let theNewArray = this.state.counterValues.filter(someGuy => someGuy.id !== theBadGuysId);
+    console.log(theNewArray);
+    this.setState({
+      counterValues: theNewArray
+    });
+  }
+
+  _convertNumToCounter = (obj) => {
+    // console.log(obj);
+
+    // if the value is even
+    if (obj.value % 2 === 0) {
+      return (
+        <Counter
+          key={obj.id}
+          id={obj.id}
+          initialValue={obj.value}
+          finalValue={obj.value * 10}
+          doClick={this._deleteCounterById}
+        />
+      );
+    } else {
+      return (
+        <Countdown
+          key={obj.id}
+          id={obj.id}
+          initialValue={obj.value}
+          finalValue={obj.value * -10}
+          doClick={this._deleteCounterById}
+        />
+      );
+
+    }
+
+    // React.createElement(Countdown, { ... })
+  }
+
   render() {
     return (
       <div className='container'>
         <button onClick={this._handleClick}>+</button>
         <div className='counter-box'>
-          {this.state.counterValues.map(convertNumToCounter)}
+          {this.state.counterValues.map(this._convertNumToCounter)}
         </div>
       </div>
     );
